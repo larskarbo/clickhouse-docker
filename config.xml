@@ -1,7 +1,3 @@
 <clickhouse>
-    <profiles>
-        <default>
-            <allow_experimental_database_materialized_postgresql>1</allow_experimental_database_materialized_postgresql>
-        </default>
-    </profiles>
+    <insert_null_as_default>1</insert_null_as_default>
 </clickhouse>
