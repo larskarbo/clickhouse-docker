@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  my-clickhouse:
+    image: clickhouse/clickhouse-server:23.11
+    volumes:
+      - ./user.xml:/etc/clickhouse-server/users.d/my-user.xml
+      - ./config.xml:/etc/clickhouse-server/config.d/my-config.xml
+      - ./ch_data:/var/lib/clickhouse/
+      - ./ch_logs:/var/log/clickhouse-server/
+    environment:
+      - CLICKHOUSE_USER=${CLICKHOUSE_USER}
+      - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1
+      - CLICKHOUSE_PASSWORD=${CLICKHOUSE_PASSWORD}
+    ports:
+      - 9000:9000
+      - 9004:9004
+      - 8123:8123
+      - 8443:8443
+      - 9440:9440
+      - 9010:9010
