@@ -1,7 +1,5 @@
-version: '3.8'
-
 services:
-  my-clickhouse:
+  clickhouse:
     image: clickhouse/clickhouse-server:23.11
     volumes:
       - ./user.xml:/etc/clickhouse-server/users.d/my-user.xml
@@ -19,3 +17,4 @@ services:
       - 8443:8443
       - 9440:9440
       - 9010:9010
+    restart: always
